@@ -9,38 +9,38 @@ remap("n", "]", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true 
 remap("n", "[", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 remap("n", "<Leader>lea", function()
-   require("lint").try_lint()
+	require("lint").try_lint()
 end, { desc = "Trigger lint for current file" })
 
 remap("n", "<Leader>lee", function()
-   require("lint").try_lint("eslint")
+	require("lint").try_lint("eslint")
 end, { desc = "Trigger eslint for current file" })
 
 remap("n", "<Leader>leb", function()
-   require("lint").try_lint("biomejs")
+	require("lint").try_lint("biomejs")
 end, { desc = "Trigger biomejs for current file" })
 
 remap({ "n", "v" }, "<Leader>lpa", function()
-   require("conform").format({
-      lsp_fallback = true,
-      async = false,
-   })
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+	})
 end, { desc = "Format file or range" })
 
 remap({ "n", "v" }, "<Leader>lpp", function()
-   require("conform").format({
-      lsp_fallback = true,
-      async = false,
-      formatters = { "prettier" },
-   })
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+		formatters = { "prettier" },
+	})
 end, { desc = "Format file or range with prettier" })
 
 remap({ "n", "v" }, "<Leader>lpb", function()
-   require("conform").format({
-      lsp_fallback = true,
-      async = false,
-      formatters = { "biome" },
-   })
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+		formatters = { "biome" },
+	})
 end, { desc = "Format file or range with biome" })
 
 remap("n", "<C-p>", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })

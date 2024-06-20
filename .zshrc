@@ -1,5 +1,5 @@
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
-   TERM=xterm-256color tmux
+	TERM=xterm-256color tmux
 fi
 
 
@@ -70,9 +70,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#	 export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#	 export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -101,8 +101,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # fnm
 FNM_PATH="/home/gabriele-cutrona/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-   export PATH="/home/gabriele-cutrona/.local/share/fnm:$PATH"
-   eval "`fnm env`"
+	export PATH="/home/gabriele-cutrona/.local/share/fnm:$PATH"
+	eval "`fnm env`"
 fi
 
 export PATH=$HOME/bin:$PATH
