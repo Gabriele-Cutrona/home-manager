@@ -20,9 +20,9 @@ echo "git config --global commit.gpgsign true"
 read -r GIT_SIGNING
 
 if [[ $GIT_SIGNING == "y" ]]; then
-   git config --global gpg.format ssh
-   git config --global user.signingkey ~/.ssh/id_ed25519.pub
-   git config --global commit.gpgsign true
+	git config --global gpg.format ssh
+	git config --global user.signingkey ~/.ssh/id_ed25519.pub
+	git config --global commit.gpgsign true
 fi
 
 echo "Enabling Chaotic Aur"
@@ -45,8 +45,8 @@ echo "Do you want to install timeshift for btrfs? y/n"
 read -r TIMESHIFT
 
 if [[ $TIMESHIFT == "y" ]]; then
-   echo "Installing timeshift for btrfs"
-   sudo pacman -Sy timeshift btrfs-progs grub-btrfs timeshift-autosnap xorg-xhost
+	echo "Installing timeshift for btrfs"
+	sudo pacman -Sy timeshift btrfs-progs grub-btrfs timeshift-autosnap xorg-xhost
 fi
 
 echo "Configuring the terminal (alacritty zsh)"
@@ -65,18 +65,18 @@ echo "Do you want flatpak? y/n"
 read -r FLATPAK
 
 if [[ $FLATPAK == "y" ]]; then
-   sudo pacman -S flatpak
-   flatpak -u override --filesystem=/usr/share/icons/:ro
-   flatpak -u override --filesystem=/home/$USER/.icons/:ro 
-   flatpak -u override --filesystem=xdg-config/gtk-3.0:ro
-   flatpak -u override --filesystem=$HOME/.themes
-   flatpak -u override --env=GTK_THEME=Colloid-Purple-Dark-Catppuccin
-   flatpak -u override --env=XCURSOR_PATH=~/.icons
-   flatpak install kvantum # All of them
-   flatpak install org.kde.PlatformTheme.QGnomePlatform # All of them
-   flatpak override -u --filesystem=xdg-config/Kvantum:ro
-   flatpak override -u --env=QT_STYLE_OVERRIDE=kvantum
-   flatpak override -u --env=XCURSOR_THEME=Catppuccin-Mocha-Lavender-Cursors
+	sudo pacman -S flatpak
+	flatpak -u override --filesystem=/usr/share/icons/:ro
+	flatpak -u override --filesystem=/home/$USER/.icons/:ro 
+	flatpak -u override --filesystem=xdg-config/gtk-3.0:ro
+	flatpak -u override --filesystem=$HOME/.themes
+	flatpak -u override --env=GTK_THEME=Colloid-Purple-Dark-Catppuccin
+	flatpak -u override --env=XCURSOR_PATH=~/.icons
+	flatpak install kvantum # All of them
+	flatpak install org.kde.PlatformTheme.QGnomePlatform # All of them
+	flatpak override -u --filesystem=xdg-config/Kvantum:ro
+	flatpak override -u --env=QT_STYLE_OVERRIDE=kvantum
+	flatpak override -u --env=XCURSOR_THEME=Catppuccin-Mocha-Lavender-Cursors
 fi
 
 echo "Installing libnotify nautilus waybar xwaylandvideobridge gnome-keyring seahorse"
@@ -87,11 +87,11 @@ echo "Do you want to install paru? (and rustup) y/n"
 read -r PARU
 
 if [[ $PARU == "y" ]]; then
-   sudo pacman -S rustup
-   rustup default stable
-   git clone https://aur.archlinux.org/paru-git.git
-   cd paru-git
-   makepkg -si
+	sudo pacman -S rustup
+	rustup default stable
+	git clone https://aur.archlinux.org/paru-git.git
+	cd paru-git
+	makepkg -si
 fi
 
 sudo pacman -S gedit pavucontrol
@@ -100,8 +100,8 @@ echo "Do you want bluetooth? y/n"
 read -r BLUETOOTH
 
 if [[ $BLUETOOTH == "y" ]]; then
-   sudo pacman -S bluez bluez-utils blueman
-   sudo systemctl enable --now bluetooth
+	sudo pacman -S bluez bluez-utils blueman
+	sudo systemctl enable --now bluetooth
 fi
 
 echo "Installing and enabling pipewire"
@@ -141,8 +141,8 @@ echo "Do you want waydroid? y/n"
 read -r WAYDROID
 
 if [[ $WAYDROID == "y" ]]; then
-   sudo pacman -S waydroid python-pyclip
-   sudo waydroid init
+	sudo pacman -S waydroid python-pyclip
+	sudo waydroid init
 fi
 
 
@@ -152,25 +152,25 @@ echo "Do you need opentabletdriver? y/n"
 read -r OPENTABLETDRIVER
 
 if [[ $OPENTABLETDRIVER == "y" ]]; then
-   paru -S aur/opentabletdriver-git
-   systemctl --user enable --now opentabletdriver.service
+	paru -S aur/opentabletdriver-git
+	systemctl --user enable --now opentabletdriver.service
 fi
 
 echo "Do you want to install fcitx5-im and fcitx5-mozc? y/n"
 read -r FCITX5
 
 if [[ $FCITX5 == "y" ]]; then
-   sudo pacman -S fcitx5-im fcitx5-mozc
-   git clone https://github.com/catppuccin/fcitx5.git
-   mkdir -p ~/.local/share/fcitx5/themes/
-   cp -r ./fcitx5/src/* ~/.local/share/fcitx5/themes
+	sudo pacman -S fcitx5-im fcitx5-mozc
+	git clone https://github.com/catppuccin/fcitx5.git
+	mkdir -p ~/.local/share/fcitx5/themes/
+	cp -r ./fcitx5/src/* ~/.local/share/fcitx5/themes
 fi
 
 echo "Do you want to install fnm? (nodejs) y/n"
 read -r FNM
 
 if [[ $FNM == "y" ]]; then
-   curl -fsSL https://fnm.vercel.app/install | bash
+	curl -fsSL https://fnm.vercel.app/install | bash
 fi
 
 sudo pacman -S tmux
@@ -183,51 +183,51 @@ echo "resources flatseal anki telegram localsend onlyoffice osu obsidian appimag
 read -r APPS
 
 if [[ $APPS == "y" ]]; then
-   flatpak install net.nokyan.Resources
-   flatpak install flatseal
-   flatpak install anki
-   flatpak install telegram
-   flatpak install sh.ppy.osu
-   paru -S aur/localsend-bin
-   sudo pacman -S onlyoffice-bin
-   wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian-1.6.3.AppImage
-   # anytype + balena etcher + cryptomator (appimage)
-   AppImageLauncher Obsidian-1.5.12.AppImage
-   paru -S proton-vpn-gtk-app network-manager-applet appimagelauncher
-   sudo pacman -S topgrade floorp upscayl
-   flatpak install xournalpp
-   flatpak install com.google.ChromeDev
-   sudo pacman -S loupe gnome-sound-recorder
-   sudo pacman -S megasync peazip ncdu grsync yt-dlp tldr
-   sudo pacman -S android-tools
+	flatpak install net.nokyan.Resources
+	flatpak install flatseal
+	flatpak install anki
+	flatpak install telegram
+	flatpak install sh.ppy.osu
+	paru -S aur/localsend-bin
+	sudo pacman -S onlyoffice-bin
+	wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian-1.6.3.AppImage
+	# anytype + balena etcher + cryptomator (appimage)
+	AppImageLauncher Obsidian-1.5.12.AppImage
+	paru -S proton-vpn-gtk-app network-manager-applet appimagelauncher
+	sudo pacman -S topgrade floorp upscayl
+	flatpak install xournalpp
+	flatpak install com.google.ChromeDev
+	sudo pacman -S loupe gnome-sound-recorder
+	sudo pacman -S megasync peazip ncdu grsync yt-dlp tldr
+	sudo pacman -S android-tools
 
-   curl -fsSL https://bun.sh/install | bash
+	curl -fsSL https://bun.sh/install | bash
 
-   sudo pacman -S ngrok quickemu
-   sudo systemctl enable --now sshd
+	sudo pacman -S ngrok quickemu
+	sudo systemctl enable --now sshd
 
-   sudo pacman -S github-cli
-   sudo pacman -S hyperfine
+	sudo pacman -S github-cli
+	sudo pacman -S hyperfine
 
-   sudo pacman -S steam
-   
-   flatpak install flathub com.modrinth.ModrinthApp
+	sudo pacman -S steam
+	
+	flatpak install flathub com.modrinth.ModrinthApp
 fi
 
 echo "Do you want to run stow .? y/n"
 read -r STOW
 
 if [[ $STOW == "y" ]]; then
-   rm -rf ~/.config/hypr
-   rm ~/.zshrc
-   stow .
+	rm -rf ~/.config/hypr
+	rm ~/.zshrc
+	stow .
 fi
 
 echo "The end! Here's a list of thing you have to do manually: (because i'm lazy)"
 echo "If you want to theme qt apps with catppuccin, go to https://github.com/catppuccin/kvantum and install it into kvantummanager"
 echo "If you want to theme qt apps in flatpak, install kvantum and org.kde.PlatformTheme.QGnomePlatform, every version (ok, maybe not the unsupported ones)"
 if [[ $APPS == "y" ]]; then
-   echo "Run \`corepack enable pnpm\` and/or \`corepack enable yarn\` in a new shell if you need them"
+	echo "Run \`corepack enable pnpm\` and/or \`corepack enable yarn\` in a new shell if you need them"
 fi
 echo "If you want to catppuccin your tty, https://github.com/catppuccin/tty"
 
