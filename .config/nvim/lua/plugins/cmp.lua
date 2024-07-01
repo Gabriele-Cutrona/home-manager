@@ -49,7 +49,7 @@ return {
                { name = "nvim_lsp" },
                { name = "luasnip" },
                { name = "path" },
-               { name = "supermaven" },
+               -- { name = "supermaven" },
             },
             window = {
                completion = cmp.config.window.bordered(),
@@ -58,10 +58,10 @@ return {
          })
       end,
    },
-   {
-      "supermaven-inc/supermaven-nvim",
-      config = function()
-         require("supermaven-nvim").setup({})
-      end,
-   },
+   -- {
+   --    "supermaven-inc/supermaven-nvim",
+   --    config = function()
+   --       require("supermaven-nvim").setup({})
+   --    end,
+   -- },
 }
