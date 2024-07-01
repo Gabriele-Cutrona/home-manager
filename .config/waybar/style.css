@@ -9,7 +9,7 @@
 
 window#waybar {
    background-color: rgba(43, 48, 59, 0);
-   color: #cdd6f4;
+   color: rgb(76, 79, 105);
    transition-property: background-color;
    transition-duration: 0.5s;
 }
@@ -58,7 +58,7 @@ button:hover {
 #workspaces button {
    padding: 0 5px;
    background-color: transparent;
-   color: #ffffff;
+   color: rgb(76, 79, 105);
    margin: 0 2px;
 }
 
@@ -82,7 +82,7 @@ button:hover {
 #window,
 #workspaces {
    margin: 0 4px;
-   background: rgba(30, 30, 46, 0.8);
+   background: rgba(239, 241, 245, 0.8);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -218,7 +218,8 @@ label:focus {
 }
 
 #tray {
-   background-color: #2980b9;
+   background-color: rgb(64, 160, 43);
+   color: rgb(64, 160, 43);
 }
 
 #tray > .passive {
@@ -227,7 +228,7 @@ label:focus {
 
 #tray > .needs-attention {
    -gtk-icon-effect: highlight;
-   background-color: #eb4d4b;
+   background-color: rgb(64, 160, 43);
 }
 
 #idle_inhibitor {
@@ -327,6 +328,6 @@ label:focus {
 #power-profiles-daemon,
 #mpd {
    padding: 3px 20px;
-   color: #ffffff;
-   background: rgba(30, 30, 46, 0.8);
+   color: rgb(76, 79, 105);
+   background: rgba(239, 241, 245, 0.8);
 }
