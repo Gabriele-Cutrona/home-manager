@@ -37,6 +37,7 @@ sudo pacman -Sy hyprland hyprpaper hyprlock hyprpicker polkit-gnome xdg-desktop-
 echo "Installing papirus-icon-theme mako fastfetch eza bat sl zoxide fzf cava neovim yazi wl-clipboard lazygit pamixer brightnessctl grimblast"
 sudo pacman -S papirus-icon-theme mako
 sudo pacman -Sy fastfetch eza bat less sl lolcat zoxide fzf cava neovim yazi ripgrep fd wl-clipboard lazygit pamixer brightnessctl grimblast
+bat cache --build
 
 echo "Do you want to install timeshift for btrfs? y/n"
 read -r TIMESHIFT
@@ -67,13 +68,13 @@ if [[ $FLATPAK == "y" ]]; then
    flatpak -u override --filesystem=/home/$USER/.icons/:ro 
    flatpak -u override --filesystem=xdg-config/gtk-3.0:ro
    flatpak -u override --filesystem=$HOME/.themes
-   flatpak -u override --env=GTK_THEME=Colloid-Purple-Dark-Catppuccin
+   flatpak -u override --env=GTK_THEME=Colloid-Green-Light-Catppuccin
    flatpak -u override --env=XCURSOR_PATH=~/.icons
    flatpak install kvantum # All of them
    flatpak install org.kde.PlatformTheme.QGnomePlatform # All of them
    flatpak override -u --filesystem=xdg-config/Kvantum:ro
    flatpak override -u --env=QT_STYLE_OVERRIDE=kvantum
-   flatpak override -u --env=XCURSOR_THEME=Catppuccin-Mocha-Lavender-Cursors
+   flatpak override -u --env=XCURSOR_THEME=Catppuccin-Latte-Green-Cursors
 fi
 
 echo "Installing libnotify nautilus waybar xwaylandvideobridge gnome-keyring seahorse"
@@ -108,29 +109,29 @@ systemctl enable --now pipewire --user
 systemctl enable --now pipewire-pulse --user
 systemctl enable --now wireplumber --user
 
-sudo pacman -S catppuccin-cursors-mocha nwg-look unzip
-wget https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-lavender-cursors.zip
-unzip catppuccin-mocha-lavender-cursors.zip -d ~/.icons
+sudo pacman -S catppuccin-cursors-latte nwg-look unzip
+wget https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-latte-green-cursors.zip
+unzip catppuccin-light-green-cursors.zip -d ~/.icons
 
 git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
 cd Colloid-gtk-theme
-./install.sh --theme purple --color dark --tweaks catppuccin black
+./install.sh --theme green --color light --tweaks catppuccin
 
 sudo pacman -S kvantum # Manually configure it with https://github.com/catppuccin/kvantum
 
 echo "sddm and GRUB catppuccin theme"
 ### sddm and GRUB catppuccin ###
-wget https://github.com/catppuccin/sddm/releases/download/v1.0.0/catppuccin-mocha.zip
-sudo unzip catppuccin-mocha.zip -d /usr/share/sddm/themes
+wget https://github.com/catppuccin/sddm/releases/download/v1.0.0/catppuccin-latte.zip
+sudo unzip catppuccin-latte.zip -d /usr/share/sddm/themes
 sudo sh -c "echo \"[Theme]\" > /etc/sddm.conf"
-sudo sh -c "echo \"Current=catppuccin-mocha\" >> /etc/sddm.conf"
+sudo sh -c "echo \"Current=catppuccin-latte\" >> /etc/sddm.conf"
 
 sudo sh -c "echo \"[IconTheme]\" > /usr/share/icons/default/index.theme"
-sudo sh -c "echo \"Inherits=catppuccin-mocha-lavender-cursors\" >> /usr/share/icons/default/index.theme"
+sudo sh -c "echo \"Inherits=catppuccin-latte-green-cursors\" >> /usr/share/icons/default/index.theme"
 
 git clone https://github.com/catppuccin/grub.git
 sudo cp -r grub/src/catppuccin-mocha-grub-theme /boot
-sudo sh -c "echo \"GRUB_THEME=\"/boot/catppuccin-mocha-grub-theme/theme.txt\"\" >> /etc/default/grub"
+sudo sh -c "echo \"GRUB_THEME=\"/boot/catppuccin-latte-grub-theme/theme.txt\"\" >> /etc/default/grub"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ### End sddm and GRUB catppuccin ###
 
@@ -219,7 +220,6 @@ if [[ $STOW == "y" ]]; then
    rm -rf ~/.config/hypr
    rm ~/.zshrc
    stow .
-   bat cache --build
 fi
 
 echo "The end! Here's a list of thing you have to do manually: (because i'm lazy)"
